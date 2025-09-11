@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Our Products</h2>
+<ul>
+  {% for p in products %}
+    <li>
+      <a href="{% url 'product_detail' p.slug %}">
+        {{ p.title }} - ₹{{ p.price }}
+      </a>
+      <a href="{% url 'add_to_cart' p.id %}">[Add to Cart]</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
